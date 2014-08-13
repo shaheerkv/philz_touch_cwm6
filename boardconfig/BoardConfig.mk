@@ -73,9 +73,16 @@
 #                               * fix any compiler error caused by the custom graphics.c (https://github.com/PhilZ-cwm6/philz_touch_cwm6/commit/4fb941bcb4824b4dd6a812960ed4870ee929da4e#diff-f71f8d16e94c30dfbe7ef8306e4e4428L68)
 #
 
+#Pantech Burst (presto)
+ifeq ($(TARGET_PRODUCT), full_presto)
+    TARGET_COMMON_NAME := Pantech Burst P9070
+    TARGET_SCREEN_HEIGHT := 800
+    TARGET_SCREEN_WIDTH := 480
+    BRIGHTNESS_SYS_FILE := "/sys/class/leds/lcd-backlight/brightness"
+    BATTERY_LEVEL_PATH := "/sys/class/power_supply/batterys/capacity"
 
 #Amazon Kindle Fire HD 8.9 (jem)
-ifeq ($(TARGET_PRODUCT), cm_jem)
+else ifeq ($(TARGET_PRODUCT), cm_jem)
     TARGET_COMMON_NAME := Kindle Fire HD 8.9
     TARGET_SCREEN_HEIGHT := 1200
     TARGET_SCREEN_WIDTH := 1920
